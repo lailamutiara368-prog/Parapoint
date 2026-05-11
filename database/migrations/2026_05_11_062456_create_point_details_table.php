@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('point_details', function (Blueprint $table) {
             $table->id();
+            $table->integer('point_detail_name');
             $table->timestamps();
         });
     }
