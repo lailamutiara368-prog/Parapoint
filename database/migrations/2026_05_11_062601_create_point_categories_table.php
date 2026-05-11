@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('point_categories', function (Blueprint $table) {
             $table->id();
             $table->enum('point_category_name', ['add', 'subtract']);
+            $table->integer('amount');
+            $table->text('description');
             $table->timestamps();
         });
     }

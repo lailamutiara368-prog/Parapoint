@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->varchar('student_name');
+            $table->foreignId('class_id')->constrained('classes');
+            $table->string('name');
+            $table->string('nis')->unique(); 
             $table->timestamps();
         });
     }
