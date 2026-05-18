@@ -2,13 +2,13 @@
 
 namespace App\Filament\Resources\PointCategories;
 
-use App\Filament\Resources\PointCategories\Pages\ManagePointCategories;
+use App\Filament\Resources\PointCategories\Pages\CreatePointCategory;
+use App\Filament\Resources\PointCategories\Pages\EditPointCategory;
+use App\Filament\Resources\PointCategories\Pages\ListPointCategories;
+use App\Filament\Resources\PointCategories\Schemas\PointCategoryForm;
+use App\Filament\Resources\PointCategories\Tables\PointCategoriesTable;
 use App\Models\PointCategory;
 use BackedEnum;
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteAction;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -22,36 +22,27 @@ class PointCategoryResource extends Resource
 
     public static function form(Schema $schema): Schema
     {
-        return $schema
-            ->components([
-                //
-            ]);
+        return PointCategoryForm::configure($schema);
     }
 
     public static function table(Table $table): Table
     {
-        return $table
-            ->columns([
-                //
-            ])
-            ->filters([
-                //
-            ])
-            ->recordActions([
-                EditAction::make(),
-                DeleteAction::make(),
-            ])
-            ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
-            ]);
+        return PointCategoriesTable::configure($table);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => ManagePointCategories::route('/'),
+            'index' => ListPointCategories::route('/'),
+            'create' => CreatePointCategory::route('/create'),
+            'edit' => EditPointCategory::route('/{record}/edit'),
         ];
     }
 }
