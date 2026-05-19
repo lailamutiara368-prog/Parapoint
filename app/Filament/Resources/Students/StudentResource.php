@@ -5,7 +5,9 @@ namespace App\Filament\Resources\Students;
 use App\Filament\Resources\Students\Pages\CreateStudent;
 use App\Filament\Resources\Students\Pages\EditStudent;
 use App\Filament\Resources\Students\Pages\ListStudents;
+use App\Filament\Resources\Students\Pages\ViewStudent;
 use App\Filament\Resources\Students\Schemas\StudentForm;
+use App\Filament\Resources\Students\Schemas\StudentInfolist;
 use App\Filament\Resources\Students\Tables\StudentsTable;
 use App\Models\Student;
 use BackedEnum;
@@ -25,6 +27,11 @@ class StudentResource extends Resource
         return StudentForm::configure($schema);
     }
 
+    public static function infolist(Schema $schema): Schema
+    {
+        return StudentInfolist::configure($schema);
+    }
+
     public static function table(Table $table): Table
     {
         return StudentsTable::configure($table);
@@ -42,6 +49,7 @@ class StudentResource extends Resource
         return [
             'index' => ListStudents::route('/'),
             'create' => CreateStudent::route('/create'),
+            'view' => ViewStudent::route('/{record}'),
             'edit' => EditStudent::route('/{record}/edit'),
         ];
     }

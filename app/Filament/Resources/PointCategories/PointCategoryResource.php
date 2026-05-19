@@ -5,7 +5,9 @@ namespace App\Filament\Resources\PointCategories;
 use App\Filament\Resources\PointCategories\Pages\CreatePointCategory;
 use App\Filament\Resources\PointCategories\Pages\EditPointCategory;
 use App\Filament\Resources\PointCategories\Pages\ListPointCategories;
+use App\Filament\Resources\PointCategories\Pages\ViewPointCategory;
 use App\Filament\Resources\PointCategories\Schemas\PointCategoryForm;
+use App\Filament\Resources\PointCategories\Schemas\PointCategoryInfolist;
 use App\Filament\Resources\PointCategories\Tables\PointCategoriesTable;
 use App\Models\PointCategory;
 use BackedEnum;
@@ -25,6 +27,11 @@ class PointCategoryResource extends Resource
         return PointCategoryForm::configure($schema);
     }
 
+    public static function infolist(Schema $schema): Schema
+    {
+        return PointCategoryInfolist::configure($schema);
+    }
+
     public static function table(Table $table): Table
     {
         return PointCategoriesTable::configure($table);
@@ -42,6 +49,7 @@ class PointCategoryResource extends Resource
         return [
             'index' => ListPointCategories::route('/'),
             'create' => CreatePointCategory::route('/create'),
+            'view' => ViewPointCategory::route('/{record}'),
             'edit' => EditPointCategory::route('/{record}/edit'),
         ];
     }

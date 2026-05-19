@@ -8,16 +8,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class ClassStudent extends Model
 {
     protected $fillable = [
-        'ClassStudent_name',
-        'id',
-        'class_id',
-        'name',
-        'nis',
+        'class_student_name',
+
     
     ];
 
-    public function classstudent() :BelongsTo
+   public function students(): BelongsTo
     {
-        return $this->belongsTo(ClassStudent::class, 'class_id');
+        return $this->belongsTo(Student::class, 'class_student_id');
     }
 }

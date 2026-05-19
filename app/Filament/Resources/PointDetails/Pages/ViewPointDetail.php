@@ -3,19 +3,17 @@
 namespace App\Filament\Resources\PointDetails\Pages;
 
 use App\Filament\Resources\PointDetails\PointDetailResource;
-use Filament\Actions\DeleteAction;
-use Filament\Actions\ViewAction;
-use Filament\Resources\Pages\EditRecord;
+use Filament\Actions\EditAction;
+use Filament\Resources\Pages\ViewRecord;
 
-class EditPointDetail extends EditRecord
+class ViewPointDetail extends ViewRecord
 {
     protected static string $resource = PointDetailResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
-            ViewAction::make(),
-            DeleteAction::make(),
+            EditAction::make(),
         ];
     }
 }

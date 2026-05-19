@@ -26,7 +26,7 @@ class PointDetail extends Model
         return $this->belongsTo(Teacher::class, 'teacher_id');
     }
 
-    public function category()
+    public function point_category()
     {
         return $this->belongsTo(PointCategory::class, 'category_id');
     }

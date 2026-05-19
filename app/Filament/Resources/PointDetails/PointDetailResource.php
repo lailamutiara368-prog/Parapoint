@@ -5,7 +5,9 @@ namespace App\Filament\Resources\PointDetails;
 use App\Filament\Resources\PointDetails\Pages\CreatePointDetail;
 use App\Filament\Resources\PointDetails\Pages\EditPointDetail;
 use App\Filament\Resources\PointDetails\Pages\ListPointDetails;
+use App\Filament\Resources\PointDetails\Pages\ViewPointDetail;
 use App\Filament\Resources\PointDetails\Schemas\PointDetailForm;
+use App\Filament\Resources\PointDetails\Schemas\PointDetailInfolist;
 use App\Filament\Resources\PointDetails\Tables\PointDetailsTable;
 use App\Models\PointDetail;
 use BackedEnum;
@@ -25,6 +27,11 @@ class PointDetailResource extends Resource
         return PointDetailForm::configure($schema);
     }
 
+    public static function infolist(Schema $schema): Schema
+    {
+        return PointDetailInfolist::configure($schema);
+    }
+
     public static function table(Table $table): Table
     {
         return PointDetailsTable::configure($table);
@@ -42,6 +49,7 @@ class PointDetailResource extends Resource
         return [
             'index' => ListPointDetails::route('/'),
             'create' => CreatePointDetail::route('/create'),
+            'view' => ViewPointDetail::route('/{record}'),
             'edit' => EditPointDetail::route('/{record}/edit'),
         ];
     }

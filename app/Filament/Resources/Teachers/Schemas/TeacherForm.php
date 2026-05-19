@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Teachers\Schemas;
 
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
 class TeacherForm
@@ -10,7 +11,8 @@ class TeacherForm
     {
         return $schema
             ->components([
-                //
+                TextInput::make('teacher_name')
+                    ->required(),
             ]);
     }
 }
