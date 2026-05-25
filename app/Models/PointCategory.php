@@ -3,10 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PointCategory extends Model
 {
      protected $fillable = [
-        'point_category_name'
+        'point_category_name',
+        'category_type',
+        'amount',
+        'description',
+    
     ];
+
 }

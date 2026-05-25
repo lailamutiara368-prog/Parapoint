@@ -2,13 +2,15 @@
 
 namespace App\Filament\Resources\PointDetails;
 
-use App\Filament\Resources\PointDetails\Pages\ManagePointDetails;
+use App\Filament\Resources\PointDetails\Pages\CreatePointDetail;
+use App\Filament\Resources\PointDetails\Pages\EditPointDetail;
+use App\Filament\Resources\PointDetails\Pages\ListPointDetails;
+use App\Filament\Resources\PointDetails\Pages\ViewPointDetail;
+use App\Filament\Resources\PointDetails\Schemas\PointDetailForm;
+use App\Filament\Resources\PointDetails\Schemas\PointDetailInfolist;
+use App\Filament\Resources\PointDetails\Tables\PointDetailsTable;
 use App\Models\PointDetail;
 use BackedEnum;
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteAction;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -22,36 +24,33 @@ class PointDetailResource extends Resource
 
     public static function form(Schema $schema): Schema
     {
-        return $schema
-            ->components([
-                //
-            ]);
+        return PointDetailForm::configure($schema);
+    }
+
+    public static function infolist(Schema $schema): Schema
+    {
+        return PointDetailInfolist::configure($schema);
     }
 
     public static function table(Table $table): Table
     {
-        return $table
-            ->columns([
-                //
-            ])
-            ->filters([
-                //
-            ])
-            ->recordActions([
-                EditAction::make(),
-                DeleteAction::make(),
-            ])
-            ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
-            ]);
+        return PointDetailsTable::configure($table);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => ManagePointDetails::route('/'),
+            'index' => ListPointDetails::route('/'),
+            'create' => CreatePointDetail::route('/create'),
+            'view' => ViewPointDetail::route('/{record}'),
+            'edit' => EditPointDetail::route('/{record}/edit'),
         ];
     }
 }
