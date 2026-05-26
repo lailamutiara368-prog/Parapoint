@@ -11,6 +11,7 @@ class Student extends Model
         'class_student_id',
         'nis',
         'name',
+        'current_point',
 
     ];
 

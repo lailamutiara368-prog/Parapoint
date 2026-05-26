@@ -12,8 +12,8 @@ class PointDetail extends Model
         'student_id',
         'teacher_id',
         'category_id',
-        'initial_point',
-        'remaining_point',
+        'occurrence_number',
+        'counted_point',
     ];
 
     public function student()
