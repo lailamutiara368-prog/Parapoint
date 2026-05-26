@@ -30,13 +30,18 @@ class PointDetailForm
                     ->searchable()
                     ->label('Category'),
 
-                TextInput::make('initial_point')
+                TextInput::make('counted_point')
                     ->required()
                     ->numeric(),
+                TextInput::make('amount')
+                    ->label('Amount')
+                    ->numeric()
+                    ->required(),
+                TextInput::make('occurrent_number')
+                    ->label('Occurrent Number')
+                    ->numeric()
+                    ->required(),
 
-                TextInput::make('remaining_point')
-                    ->required()
-                    ->numeric(),
     ]);
     }
 }

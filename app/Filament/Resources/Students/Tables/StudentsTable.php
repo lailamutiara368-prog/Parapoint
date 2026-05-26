@@ -16,12 +16,16 @@ class StudentsTable
     {
         return $table
             ->columns([
-                TextColumn::make('class_student.id')
+                TextColumn::make('class_student.class_student_name')
+                    ->label('Class')
                     ->searchable(),
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('nis')
                     ->searchable(),
+                TextColumn::make('current_point')
+                    ->label('Current_point')
+                    ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

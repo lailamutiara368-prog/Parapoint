@@ -29,10 +29,15 @@ class PointDetailsTable
                     ->label('Category')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('initial_point')
+                TextColumn::make('counted_point')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('remaining_point')
+                TextColumn::make('amount')
+                    ->label('Point Amount')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('occurrent_number')
+                    ->label('Occurrent Number')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('created_at')
