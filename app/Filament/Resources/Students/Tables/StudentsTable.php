@@ -7,6 +7,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
+use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -17,14 +18,19 @@ class StudentsTable
         return $table
             ->columns([
                 TextColumn::make('class_student.class_student_name')
-                    ->label('Class')
+                    ->label('Kelas')
                     ->searchable(),
+                TextColumn::make('id')
+                    ->label('ID')
+                    ->sortable(),
                 TextColumn::make('name')
+                    ->label('Nama Siswa')
                     ->searchable(),
                 TextColumn::make('nis')
+                    ->label('NIS')
                     ->searchable(),
                 TextColumn::make('current_point')
-                    ->label('Current_point')
+                    ->label('Sisa Poin')
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()

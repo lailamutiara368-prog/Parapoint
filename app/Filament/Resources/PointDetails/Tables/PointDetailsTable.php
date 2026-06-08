@@ -18,26 +18,27 @@ class PointDetailsTable
         return $table
             ->columns([
                 TextColumn::make('student.name')
-                    ->label('Student')
+                    ->label('Nama Siswa')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('teacher.teacher_name')
-                    ->label('Teacher')
+                    ->label('Nama Guru')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('point_category.description')
-                    ->label('Category')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('counted_point')
+                    ->label('Deskripsi')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('amount')
-                    ->label('Point Amount')
+                    ->label('Nilai Poin')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('occurrent_number')
-                    ->label('Occurrent Number')
+                    ->label('Jumlah Kejadian')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('counted_point')
+                    ->label('Total Poin')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('created_at')

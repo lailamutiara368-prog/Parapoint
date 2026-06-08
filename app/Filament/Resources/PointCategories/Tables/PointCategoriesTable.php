@@ -17,10 +17,13 @@ class PointCategoriesTable
         return $table
             ->columns([
                 TextColumn::make('point_category_name')
+                    ->label('Nama Kategori')
                     ->badge(),
                 TextColumn::make('description')
+                    ->label('Deskripsi')
                     ->badge(),
                 TextColumn::make('amount')
+                    ->label('Nilai Poin')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('created_at')

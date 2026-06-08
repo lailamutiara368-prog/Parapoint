@@ -17,9 +17,10 @@ class TeachersTable
         return $table
             ->columns([
                 TextColumn::make('teacher_name')
+                    ->label('Nama Guru')
                     ->searchable(),
                 TextColumn::make('id')
-                    ->label('Teacher id')
+                    ->label('Id Guru')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('created_at')
