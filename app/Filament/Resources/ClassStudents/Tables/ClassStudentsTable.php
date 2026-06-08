@@ -17,7 +17,11 @@ class ClassStudentsTable
         return $table
             ->columns([
                 TextColumn::make('class_student_name')
+                    ->label('Kelas')
                     ->searchable(),
+                TextColumn::make('id')
+                    ->label('ID')
+                    ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -19,9 +19,15 @@ class StudentForm
                 TextInput::make('name')
                     ->required(),
                 TextInput::make('nis')
-                    ->required(),
+                    ->label('NIS')
+                    ->required()
+                    ->numeric()
+                    ->unique(table: 'students', ignoreRecord: true) 
+                    ->validationMessages([
+                        'unique' => 'NIS ini udah terdaftar!',
+                    ]),
                 TextInput::make('current_point')
-                    ->label('Current_point')
+                    ->label('Current Point')
                     ->numeric()
                     ->default(150)
                     ->required(),
